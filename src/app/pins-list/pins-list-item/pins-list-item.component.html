@@ -1,0 +1,79 @@
+<mat-card class="example-card mt-5">
+  <mat-card-header>
+    <div mat-card-avatar>
+      <ngx-avatar [src]="pPost.avatar"></ngx-avatar>
+    </div>
+    <mat-card-title>{{ pPost.username }}</mat-card-title>
+    <mat-card-subtitle>{{pPost.timestamp | date:'long'}}</mat-card-subtitle>
+
+    <button mat-icon-button [matMenuTriggerFor]="menu" aria-label="Example icon-button with a menu" class="testing">
+      <mat-icon>more_vert</mat-icon>
+    </button>
+    <mat-menu #menu="matMenu">
+      <button mat-menu-item>
+        <mat-icon>lock_open</mat-icon>
+        <span>Edit</span>
+      </button>
+      <button mat-menu-item>
+        <mat-icon>delete</mat-icon>
+        <span>Delete</span>
+      </button>
+    </mat-menu>
+  </mat-card-header>
+  <mat-card-content>
+    <h6>{{ pPost.title }}</h6>
+    <div class="post-sub-title" [class.show]="show">
+      <p>
+        {{ pPost.subtitle }}
+      </p>
+    </div>
+    <button mat-button (click)="show = !show" class="show-toggle">
+      {{ show ? "Show less" : "Show More" }}
+    </button>
+  </mat-card-content>
+  <img mat-card-image [src]="pPost.postUrl" />
+  <mat-card-actions>
+    <section class="overview-section">
+      <span class="likes"><small>{{ pPost.like }} Likes {{ totalLike }}</small></span>
+      <span class="comments"><small>20 Comments</small></span>
+      <span class="votes"><small>{{ pPost.votes }} Votes</small></span>
+    </section>
+  </mat-card-actions>
+  <hr />
+  <section>
+    <div class="example-button-row">
+      <button mat-raised-button class="example-button-item" (click)="likePost()">
+        <mat-icon>thumb_up_off_alt</mat-icon>
+        Like
+      </button>
+      <button mat-raised-button class="example-button-item" (click)="toggleComment()">
+        <mat-icon>comment_bank</mat-icon>
+        Comment
+      </button>
+      <button mat-raised-button class="example-button-item">
+        <mat-icon>room</mat-icon>
+        Pin
+      </button>
+      <button mat-raised-button class="example-button-item">
+        <mat-icon>trending_up</mat-icon>
+        Vote
+      </button>
+    </div>
+  </section>
+
+  <mat-card-footer class="mt-3">
+
+
+    <div class="comment-section" *ngIf="toggle">
+      <ngx-avatar class="comment-img" [src]="Ppost.avatar"></ngx-avatar>
+      <form>
+        <input type="text" placeholder="Help someone queries...." class="comment-field" />
+        <button type="submit">Post</button>
+      </form>
+    </div>
+
+  </mat-card-footer>
+</mat-card>
+
+
+

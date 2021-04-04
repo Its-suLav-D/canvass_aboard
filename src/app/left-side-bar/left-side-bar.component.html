@@ -1,0 +1,41 @@
+<div class="sidebar">
+  <div class="sidebar-top">
+    <img src="https://material.angular.io/assets/img/examples/shiba2.jpg" alt="" />
+    <ngx-avatar src="https://material.angular.io/assets/img/examples/shiba2.jpg"></ngx-avatar>
+    <h2>Shiba Inu</h2>
+    <h4>Lives in USA</h4>
+  </div>
+  <div class="sidebar-stats">
+    <div class="sidebar-stat">
+      <p>Rating</p>
+      <p class="sidebar-number">4.5</p>
+    </div>
+    <div class="sidebar-stat">
+      <p>Activity</p>
+      <p class="sidebar-number">50%</p>
+    </div>
+  </div>
+  <div class="sidebar-bottom">
+    <p>Channels</p>
+    <div class="sidebar-recent-item">
+      <p [routerLink]="['./usa']"># United States</p>
+      <flag country="us" size="m"></flag>
+    </div>
+    <div class="sidebar-recent-item">
+      <p [routerLink]="['./uk']"># United Kingdom</p>
+      <flag country="uk-io" size="m"></flag>
+    </div>
+    <div class="sidebar-recent-item">
+      <p [routerLink]="['./germany']"># Germany</p>
+      <flag country="de" size="m"></flag>
+    </div>
+    <div class="sidebar-recent-item">
+      <p [routerLink]="['./canada']"># Canada</p>
+      <flag country="ca" size="m"></flag>
+    </div>
+    <div class="sidebar-recent-item">
+      <p [routerLink]="['./australia']"># Australia</p>
+      <flag country="au" size="m"></flag>
+    </div>
+  </div>
+</div>

@@ -1,0 +1,38 @@
+.querySender {
+  display: flex;
+  margin-top: 100px;
+  flex-direction: column;
+  background-color: #fff;
+  border-radius: 15px;
+  box-shadow: 0px 5px 7px -7px rgba(0, 0, 0, 0.75);
+  width: 100%;
+}
+
+.querySender-top {
+  display: flex;
+  align-items: center;
+  padding: 15px;
+}
+
+.querySender-top>form {
+  display: flex;
+  flex: 1;
+}
+
+
+.querySender-top>form>input {
+  outline-width: 0;
+  border: none;
+  background-color: #eff2f5;
+  padding: 7px 20px;
+  margin: 0px 5px;
+  border-radius: 999px;
+}
+
+.querySender-top>form>button {
+  display: none;
+}
+
+.query-field {
+  flex: 1
+}

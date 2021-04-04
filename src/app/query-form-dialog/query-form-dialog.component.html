@@ -1,0 +1,47 @@
+<h2 mat-dialog-title>Create a query</h2>
+<hr>
+<mat-dialog-content class="mat-typography">
+  <div class="alert alert-warning" role="alert">
+    <h4>Tips on getting good answers quickly</h4>
+    <ul>
+      <li>Make Sure your Question has not been asked already</li>
+      <li>Keep your question short and to the point</li>
+      <li>Double-check spelling and grammar</li>
+    </ul>
+  </div>
+
+  <div class="senderMessage">
+    <form (ngSubmit)="querySenderForm(f)" #f="ngForm">
+      <div class="mb-3">
+        <label for="title" class="form-label">Title</label>
+        <small class="-mt1">Be Specific and imagine you're asking question to another person </small>
+        <!-- <div id="emailHelp" class="form-text">Be specific and imagine you’re asking a question to another person</div> -->
+        <input type="text" class="form-control" id="title" placeholder="e.g How can I apply to the United States?"
+          name="title" ngModel required>
+
+      </div>
+
+      <div class="mb-3">
+        <label for="exampleFormControlTextarea1" class="form-label">Body</label>
+        <small class="-mt1">Include all the information someone would need to answer your question </small>
+
+        <textarea class="form-control" id="exampleFormControlTextarea1" rows="3" name="body" ngModel
+          required></textarea>
+      </div>
+
+      <div class="mb-3">
+        <label class="form-label" for="postUrl">Image Url</label>
+        <small class="-mt1">Please Provide an Image URL </small>
+
+        <input type="text" class="form-control" id="postUrl" placeholder="#USA # Study Abroad" name="postUrl" ngModel>
+
+      </div>
+
+
+      <mat-dialog-actions align="end">
+        <button mat-button mat-dialog-close>Cancel</button>
+        <button mat-button [mat-dialog-close]="true" cdkFocusInitial type="submit" [disabled]="!f.valid">Post</button>
+      </mat-dialog-actions>
+    </form>
+  </div>
+</mat-dialog-content>

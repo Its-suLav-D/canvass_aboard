@@ -1,0 +1,19 @@
+<div class="container">
+  <div class="row">
+    <div class="col-md-6">
+      <canvass-pins-list-item *ngFor="let pinPost of pinnedPosts" [pPost]="pinPost">
+
+      </canvass-pins-list-item>
+    </div>
+  </div>
+</div>
+
+
+
+<div class="alert alert-success mt-6" role="alert" *ngIf="pinnedPosts.length == 0">
+  <h4 class="alert-heading">Your List is Empty </h4>
+  <p>Aww yeah, you successfully read this important alert message. This example text is going to run a bit longer so
+    that you can see how spacing within an alert works with this kind of content.</p>
+  <hr>
+  <p class="mb-0">Whenever you need to, be sure to use margin utilities to keep things nice and tidy.</p>
+</div>

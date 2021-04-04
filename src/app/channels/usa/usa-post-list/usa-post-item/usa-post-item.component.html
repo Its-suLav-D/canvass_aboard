@@ -1,0 +1,125 @@
+<mat-card class="example-card">
+  <mat-card-header>
+    <div mat-card-avatar>
+      <ngx-avatar [src]="UsaPost?.avatar"></ngx-avatar>
+    </div>
+    <mat-card-title>{{ UsaPost?.username }}</mat-card-title>
+    <mat-card-subtitle>{{
+      UsaPost?.timestamp | date: "long"
+    }}</mat-card-subtitle>
+
+    <button mat-icon-button [matMenuTriggerFor]="menu" aria-label="Example icon-button with a menu" class="testing">
+      <mat-icon>more_vert</mat-icon>
+    </button>
+    <mat-menu #menu="matMenu">
+      <button mat-menu-item (click)="openEdit(UsaPost.id)">
+        <mat-icon>lock_open</mat-icon>
+        <span>Edit</span>
+      </button>
+      <button mat-menu-item mat-color="warn" (click)="onDelete(UsaPost.id)">
+        <mat-icon>delete</mat-icon>
+        <span>Delete</span>
+      </button>
+    </mat-menu>
+  </mat-card-header>
+  <mat-card-content>
+    <h6>{{ UsaPost?.title }}</h6>
+    <div class="post-sub-title" [class.show]="show">
+      <p>
+        {{ UsaPost?.subtitle }}
+      </p>
+    </div>
+    <button mat-button (click)="show = !show" class="show-toggle">
+      {{ show ? "Show less" : "Show More" }}
+    </button>
+  </mat-card-content>
+  <img mat-card-image [src]="UsaPost?.postUrl" />
+  <mat-card-actions>
+    <!-- <mat-icon>favorite_border</mat-icon>
+          <mat-icon>mark_chat_unread</mat-icon>
+          <mat-icon>assistant_photo</mat-icon> -->
+    <section class="overview-section">
+      <span class="likes"><small>{{ UsaPost?.like }} Likes</small></span>
+      <span class="comments"><small>0 Comments</small></span>
+      <span class="votes"><small>{{ UsaPost?.votes }} Votes</small></span>
+    </section>
+    <div class="tags">
+      <mat-chip-list class="example-chip" cdkDropList cdkDropListOrientation="horizontal"
+        (cdkDropListDropped)="drop($event)">
+        <mat-chip class="example-box" cdkDrag *ngFor="let vegetable of vegetables">
+          {{ vegetable?.name }}
+        </mat-chip>
+      </mat-chip-list>
+    </div>
+  </mat-card-actions>
+  <hr />
+  <section>
+    <div class="example-button-row">
+      <button mat-raised-button class="example-button-item like" (click)="likePost()">
+        <mat-icon>thumb_up_off_alt</mat-icon>
+        Like
+      </button>
+      <button mat-raised-button class="example-button-item" (click)="toggleComment()">
+        <mat-icon>comment_bank</mat-icon>
+        Comment
+      </button>
+      <button mat-raised-button class="example-button-item" (click)="pinPost()">
+        <mat-icon>room</mat-icon>
+        Pin
+      </button>
+      <button mat-raised-button class="example-button-item" (click)="votePost()">
+        <mat-icon>trending_up</mat-icon>
+        Vote
+      </button>
+    </div>
+  </section>
+
+  <mat-card-footer class="mt-3">
+    <!-- <mat-accordion multi>
+            <mat-expansion-panel>
+              <mat-expansion-panel-header class=" example-headers">
+          <mat-panel-title>
+            <ngx-avatar class="comment-img" src="https://material.angular.io/assets/img/examples/shiba2.jpg">
+            </ngx-avatar>
+          </mat-panel-title>
+          <mat-panel-description class="comment-description">
+            <form class="comment-form">
+              <input type="text" placeholder='Write a comment ..'>
+              <button type="submit" class="btn btn-primary btn-sm">Post</button>
+            </form>
+          </mat-panel-description>
+          </mat-expansion-panel-header>
+      
+          <p>This is a comment Box</p>
+          </mat-expansion-panel>
+      
+      
+          </mat-accordion> -->
+
+    <div class="comment-section" *ngIf="toggle">
+      <ngx-avatar class="comment-img" [src]="UsaPost?.avatar"></ngx-avatar>
+      <form>
+        <input type="text" placeholder="Help someone queries...." class="comment-field" />
+        <button type="submit">Post</button>
+      </form>
+    </div>
+
+    <!-- <div class="comment-panel">
+            <ngx-avatar
+              class="comment-img"
+              src="https://material.angular.io/assets/img/examples/shiba2.jpg"
+            ></ngx-avatar>
+            <div class="comment-form">
+              <form>
+                <input
+                  type="text"
+                  class="form-control"
+                  placeholder="write a comment...."
+                  required
+                />
+                <button type="submit">Post</button>
+              </form>
+            </div>
+          </div> -->
+  </mat-card-footer>
+</mat-card>
